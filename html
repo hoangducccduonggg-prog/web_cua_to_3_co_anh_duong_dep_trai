@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="vi" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Khu Di Tích Lịch Sử Quốc Gia Đặc Biệt ATK Tân Trào | Thủ Đô Kháng Chiến</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts: Playfair Display & Plus Jakarta Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        forest: '#1b4d3e',
+                        emerald: '#2e7d32',
+                        wood: '#8d6e63',
+                        vintage: '#f5f2eb',
+                        cream: '#fefae0',
+                        charcoal: '#2c3e50',
+                        gold: '#d4af37',
+                        crimson: '#b91c1c'
+                    },
+                    fontFamily: {
+                        serif: ['Playfair Display', 'serif'],
+                        sans: ['Plus Jakarta Sans', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .hero-bg {
+            background: linear-gradient(rgba(27, 77, 62, 0.75), rgba(44, 62, 80, 0.85)), url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+        }
+        .vintage-card {
+            background: #fefae0;
+            border: 1px solid rgba(141, 110, 99, 0.2);
+        }
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f5f2eb;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #1b4d3e;
+            border-radius: 4px;
+        }
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body class="bg-vintage text-charcoal font-sans antialiased selection:bg-forest selection:text-cream">
+
+    <header id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-forest/95 backdrop-blur-md text-cream shadow-lg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <!-- Brand Logo -->
+                <a href="#home" class="flex items-center space-x-3 group">
+                    <div class="w-10 h-10 rounded-full bg-red-600 flex items-center justify-center text-gold shadow-md group-hover:scale-105 transition-transform">
+                        <i class="fa-solid fa-star text-xl"></i>
+                    </div>
+                    <div>
+                        <span class="font-serif font-bold text-xl tracking-wide block text-cream group-hover:text-gold transition-colors">ATK TÂN TRÀO</span>
+                        <span class="text-xs text-emerald-300 font-sans tracking-widest uppercase">Thủ đô kháng chiến</span>
+                    </div>
+                </a>
+
+                <!-- Desktop Nav Links -->
+                <nav class="hidden md:flex items-center space-x-8 font-medium text-sm">
+                    <a href="#home" class="hover:text-gold transition-colors">Trang chủ</a>
+                    <a href="#overview" class="hover:text-gold transition-colors">Tổng quan lịch sử</a>
+                    <a href="#landmarks" class="hover:text-gold transition-colors">Di tích cốt lõi</a>
+                    <a href="#timeline" class="hover:text-gold transition-colors">Mốc son 1945-1954</a>
+                    <a href="#tourism" class="hover:text-gold transition-colors">Du lịch sinh thái</a>
+                    <a href="#contact" class="bg-gold text-forest font-bold px-5 py-2 rounded-full hover:bg-yellow-400 transition-colors shadow-sm">Về nguồn ngay</a>
+                </nav>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden flex items-center">
+                    <button id="menu-btn" class="text-cream focus:outline-none p-2" aria-label="Toggle Menu">
+                        <i class="fa-solid fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-forest border-t border-forest-dark px-4 pt-4 pb-6 space-y-3 shadow-xl">
+            <a href="#home" class="block py-2 px-3 rounded hover:bg-emerald/50 transition-colors">Trang chủ</a>
+            <a href="#overview" class="block py-2 px-3 rounded hover:bg-emerald/50 transition-colors">Tổng quan lịch sử</a>
+            <a href="#landmarks" class="block py-2 px-3 rounded hover:bg-emerald/50 transition-colors">Di tích cốt lõi</a>
+            <a href="#timeline" class="block py-2 px-3 rounded hover:bg-emerald/50 transition-colors">Mốc son 1945-1954</a>
+            <a href="#tourism" class="block py-2 px-3 rounded hover:bg-emerald/50 transition-colors">Du lịch sinh thái</a>
+            <a href="#contact" class="block py-2 px-3 bg-gold text-forest font-bold text-center rounded-full hover:bg-yellow-400 transition-colors">Về nguồn ngay</a>
+        </div>
+    </header>
+
+    <main>
+        <section id="home" class="hero-bg min-h-screen flex items-center justify-center pt-20 text-cream relative overflow-hidden">
+            <div class="absolute inset-0 bg-black/30 pointer-events-none"></div>
+            <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-24 text-center relative z-10">
+                <div class="inline-flex items-center space-x-2 bg-emerald/80 border border-gold/40 text-cream px-4 py-1.5 rounded-full text-xs sm:text-sm font-semibold mb-6 shadow-lg backdrop-blur-sm">
+                    <i class="fa-solid fa-landmark text-gold"></i>
+                    <span>Di tích quốc gia đặc biệt • Tuyên Quang</span>
+                </div>
+                <h1 class="font-serif text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight mb-6 leading-tight text-cream drop-shadow-md">
+                    ATK Tân Trào <br><span class="text-gold italic font-normal">Thủ Đô Kháng Chiến Chói Lọi Lịch Sử</span>
+                </h1>
+                <p class="max-w-3xl mx-auto text-lg sm:text-xl text-gray-200 mb-10 font-light leading-relaxed">
+                    Nơi lưu giữ những dấu ấn hào hùng của Chủ tịch Hồ Chí Minh và Trung ương Đảng trong Cách mạng Tháng Tám năm 1945 và toàn bộ cuộc kháng chiến chống thực dân Pháp trường kỳ (1946 - 1954).
+                </p>
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                    <a href="#landmarks" class="w-full sm:w-auto bg-gold hover:bg-yellow-500 text-forest font-bold px-8 py-4 rounded-full shadow-lg hover:scale-105 transition-all text-center flex items-center justify-center space-x-3">
+                        <i class="fa-solid fa-compass"></i>
+                        <span>Khám phá các di tích</span>
+                    </a>
+                    <a href="#overview" class="w-full sm:w-auto bg-white/10 hover:bg-white/25 border border-cream/40 text-cream font-semibold px-8 py-4 rounded-full shadow-lg backdrop-blur-sm transition-all text-center flex items-center justify-center space-x-3">
+                        <i class="fa-solid fa-book-open"></i>
+                        <span>Tìm hiểu Lịch sử Lớp 12</span>
+                    </a>
+                </div>
+
+                <!-- Quick Stats Grid -->
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 mt-16 max-w-4xl mx-auto pt-10 border-t border-white/20">
+                    <div class="bg-forest/60 backdrop-blur-md p-6 rounded-2xl border border-white/10 shadow-xl">
+                        <div class="text-3xl sm:text-4xl font-serif font-bold text-gold mb-1">1945–1954</div>
+                        <div class="text-sm text-gray-300">Giai đoạn lịch sử trọng điểm</div>
+                    </div>
+                    <div class="bg-forest/60 backdrop-blur-md p-6 rounded-2xl border border-white/10 shadow-xl">
+                        <div class="text-3xl sm:text-4xl font-serif font-bold text-gold mb-1">03</div>
+                        <div class="text-sm text-gray-300">Điểm di tích cốt lõi quốc gia</div>
+                    </div>
+                    <div class="bg-forest/60 backdrop-blur-md p-6 rounded-2xl border border-white/10 shadow-xl">
+                        <div class="text-3xl sm:text-4xl font-serif font-bold text-gold mb-1">100%</div>
+                        <div class="text-sm text-gray-300">Không gian rừng núi Việt Bắc</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="overview" class="py-24 bg-vintage relative">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-3xl mx-auto mb-16 reveal">
+                    <span class="text-emerald font-bold tracking-widest uppercase text-sm block mb-2">KIẾN THỨC LỊCH SỬ TRỌNG TÂM</span>
+                    <h2 class="font-serif text-3xl sm:text-5xl font-bold text-forest mb-4">Tổng quan về ATK Tân Trào</h2>
+                    <div class="w-24 h-1 bg-gold mx-auto rounded-full mb-6"></div>
+                    <p class="text-gray-700 text-base sm:text-lg leading-relaxed">
+                        Theo chương trình Lịch sử Việt Nam, ATK (An toàn khu) Tân Trào thuộc huyện Sơn Dương, tỉnh Tuyên Quang, là căn cứ địa cách mạng vững chắc, đầu não của cuộc kháng chiến chống thực dân Pháp và là chiếc nôi của Cách mạng Tháng Tám.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                    <div class="space-y-6 reveal">
+                        <div class="vintage-card p-8 rounded-3xl shadow-xl relative overflow-hidden border-l-8 border-forest">
+                            <div class="absolute -right-10 -bottom-10 text-forest/5 text-9xl font-serif pointer-events-none">1945</div>
+                            <h3 class="font-serif text-2xl font-bold text-forest mb-3 flex items-center space-x-3">
+                                <i class="fa-solid fa-flag text-red-600"></i>
+                                <span>Mốc son Cách mạng Tháng Tám</span>
+                            </h3>
+                            <p class="text-gray-700 leading-relaxed">
+                                Cuối tháng 5 năm 1945, Bác Hồ từ Pác Bó (Cao Bằng) về Tân Trào để chỉ đạo cách mạng cả nước. Tân Trào trở thành trung tâm chỉ đạo Tổng khởi nghĩa giành chính quyền trên phạm vi toàn quốc trong tháng 8/1945.
+                            </p>
+                        </div>
+
+                        <div class="vintage-card p-8 rounded-3xl shadow-xl relative overflow-hidden border-l-8 border-emerald">
+                            <div class="absolute -right-10 -bottom-10 text-emerald/5 text-9xl font-serif pointer-events-none">1954</div>
+                            <h3 class="font-serif text-2xl font-bold text-forest mb-3 flex items-center space-x-3">
+                                <i class="fa-solid fa-shield-halved text-emerald"></i>
+                                <span>Thủ đô kháng chiến (1946 - 1954)</span>
+                            </h3>
+                            <p class="text-gray-700 leading-relaxed">
+                                Trong suốt 9 năm kháng chiến chống thực dân Pháp xâm lược (1946–1954), nơi đây là nơi ở và làm việc của Chủ tịch Hồ Chí Minh, Trung ương Đảng, Chính phủ và các cơ quan trung ương, lãnh đạo toàn dân giành thắng lợi vẻ vang kết thúc bằng chiến thắng Điện Biên Phủ.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="relative reveal">
+                        <div class="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-white">
+                            <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=800&q=80" alt="Rừng núi Việt Bắc ATK Tân Trào" class="w-full h-[450px] object-cover hover:scale-105 transition-transform duration-700">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent flex items-end p-8">
+                                <div class="text-white">
+                                    <span class="bg-gold text-forest text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">Việt Bắc chiến khu</span>
+                                    <h4 class="font-serif text-xl font-bold mt-2">Vùng đất linh thiêng gắn liền với cội nguồn dân tộc</h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="landmarks" class="py-24 bg-white relative">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-3xl mx-auto mb-16 reveal">
+                    <span class="text-emerald font-bold tracking-widest uppercase text-sm block mb-2">DI TÍCH QUỐC GIA ĐẶC BIỆT</span>
+                    <h2 class="font-serif text-3xl sm:text-5xl font-bold text-forest mb-4">Ba Địa Danh Cốt Lõi Lịch Sử</h2>
+                    <div class="w-24 h-1 bg-gold mx-auto rounded-full mb-6"></div>
+                    <p class="text-gray-700 text-base sm:text-lg leading-relaxed">
+                        Mỗi địa danh tại ATK Tân Trào là một nhân chứng sống cho giai đoạn lịch sử hào hùng, quyết định vận mệnh của dân tộc Việt Nam.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- Card 1: Lán Nà Nưa -->
+                    <div class="vintage-card rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 flex flex-col justify-between reveal border border-wood/20 group">
+                        <div>
+                            <div class="relative h-64 overflow-hidden">
+                                <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=600&q=80" alt="Lán Nà Nưa" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                                <div class="absolute top-4 left-4 bg-forest/90 text-cream text-xs font-bold px-3 py-1 rounded-full backdrop-blur-sm">
+                                    Cuối tháng 5 - Giữa tháng 8/1945
+                                </div>
+                            </div>
+                            <div class="p-6">
+                                <h3 class="font-serif text-2xl font-bold text-forest mb-3">Lán Nà Nưa</h3>
+                                <p class="text-gray-600 text-sm leading-relaxed mb-4">
+                                    Nơi Chủ tịch Hồ Chí Minh ở và làm việc, chỉ đạo chuẩn bị cho Hội nghị toàn quốc của Đảng và Quốc dân Đại hội, quyết định Tổng khởi nghĩa giành chính quyền trong cả nước.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="p-6 pt-0">
+                            <button onclick="openModal('nana')" class="w-full bg-forest hover:bg-emerald text-cream font-semibold py-3 rounded-xl transition-colors flex items-center justify-center space-x-2 shadow">
+                                <span>Xem chi tiết lịch sử</span>
+                                <i class="fa-solid fa-arrow-right text-xs"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Card 2: Đình Tân Trào -->
+                    <div class="vintage-card rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 flex flex-col justify-between reveal border border-wood/20 group">
+                        <div>
+                            <div class="relative h-64 overflow-hidden">
+                                <img src="https://images.unsplash.com/photo-1541872703-74c5e44368f9?auto=format&fit=crop&w=600&q=80" alt="Đình Tân Trào" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                                <div class="absolute top-4 left-4 bg-forest/90 text-cream text-xs font-bold px-3 py-1 rounded-full backdrop-blur-sm">
+                                    16 - 17/08/1945
+                                </div>
+                            </div>
+                            <div class="p-6">
+                                <h3 class="font-serif text-2xl font-bold text-forest mb-3">Đình Tân Trào</h3>
+                                <p class="text-gray-600 text-sm leading-relaxed mb-4">
+                                    Nơi diễn ra Quốc dân Đại hội tán thành chủ trương Tổng khởi nghĩa của Đảng, cử ra Ủy ban Dân tộc Giải phóng Việt Nam (Chính phủ lâm thời) do Hồ Chí Minh làm Chủ tịch.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="p-6 pt-0">
+                            <button onclick="openModal('dinh')" class="w-full bg-forest hover:bg-emerald text-cream font-semibold py-3 rounded-xl transition-colors flex items-center justify-center space-x-2 shadow">
+                                <span>Xem chi tiết lịch sử</span>
+                                <i class="fa-solid fa-arrow-right text-xs"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Card 3: Cây đa Tân Trào -->
+                    <div class="vintage-card rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 flex flex-col justify-between reveal border border-wood/20 group">
+                        <div>
+                            <div class="relative h-64 overflow-hidden">
+                                <img src="https://images.unsplash.com/photo-1502082553048-f009c37129b9?auto=format&fit=crop&w=600&q=80" alt="Cây đa Tân Trào" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                                <div class="absolute top-4 left-4 bg-forest/90 text-cream text-xs font-bold px-3 py-1 rounded-full backdrop-blur-sm">
+                                    Mốc son xuất quân 1945
+                                </div>
+                            </div>
+                            <div class="p-6">
+                                <h3 class="font-serif text-2xl font-bold text-forest mb-3">Cây đa Tân Trào</h3>
+                                <p class="text-gray-600 text-sm leading-relaxed mb-4">
+                                    Nơi chứng kiến lễ xuất quân của Quân đội Giải phóng Việt Nam (nay là QĐND Việt Nam) chiều 16/8/1945, Đại tướng Võ Nguyên Giáp đọc Bản Quân lệnh số 1 trước toàn quân.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="p-6 pt-0">
+                            <button onclick="openModal('cayda')" class="w-full bg-forest hover:bg-emerald text-cream font-semibold py-3 rounded-xl transition-colors flex items-center justify-center space-x-2 shadow">
+                                <span>Xem chi tiết lịch sử</span>
+                                <i class="fa-solid fa-arrow-right text-xs"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="timeline" class="py-24 bg-forest text-cream relative overflow-hidden">
+            <div class="absolute inset-0 bg-black/20 pointer-events-none"></div>
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                <div class="text-center max-w-3xl mx-auto mb-16 reveal">
+                    <span class="text-gold font-bold tracking-widest uppercase text-sm block mb-2">DÒNG THỜI GIAN LỊCH SỬ</span>
+                    <h2 class="font-serif text-3xl sm:text-5xl font-bold text-cream mb-4">Các Mốc Son Chói Lọi (1945 - 1954)</h2>
+                    <div class="w-24 h-1 bg-gold mx-auto rounded-full mb-6"></div>
+                    <p class="text-gray-300 text-base sm:text-lg">
+                        Hành trình oanh liệt từ căn cứ địa Việt Bắc tới ngày độc lập và chiến thắng lẫy lừng.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <!-- Milestone 1 -->
+                    <div class="bg-forest-dark/80 border border-gold/30 p-6 rounded-2xl shadow-xl reveal backdrop-blur-md">
+                        <div class="text-gold font-serif text-2xl font-bold mb-2">Tháng 5/1945</div>
+                        <h4 class="font-bold text-lg mb-2 text-white">Bác Hồ về Tân Trào</h4>
+                        <p class="text-gray-300 text-sm leading-relaxed">
+                            Chủ tịch Hồ Chí Minh rời Pác Bó về Tân Trào chọn nơi đây làm trung tâm chỉ đạo Cách mạng cả nước.
+                        </p>
+                    </div>
+
+                    <!-- Milestone 2 -->
+                    <div class="bg-forest-dark/80 border border-gold/30 p-6 rounded-2xl shadow-xl reveal backdrop-blur-md">
+                        <div class="text-gold font-serif text-2xl font-bold mb-2">16-17/8/1945</div>
+                        <h4 class="font-bold text-lg mb-2 text-white">Quốc dân Đại hội Tân Trào</h4>
+                        <p class="text-gray-300 text-sm leading-relaxed">
+                            Đại hội tán thành lệnh Tổng khởi nghĩa, quyết định quốc kỳ, quốc ca và bầu Ủy ban Dân tộc Giải phóng.
+                        </p>
+                    </div>
+
+                    <!-- Milestone 3 -->
+                    <div class="bg-forest-dark/80 border border-gold/30 p-6 rounded-2xl shadow-xl reveal backdrop-blur-md">
+                        <div class="text-gold font-serif text-2xl font-bold mb-2">1946 - 1954</div>
+                        <h4 class="font-bold text-lg mb-2 text-white">Thủ đô kháng chiến</h4>
+                        <p class="text-gray-300 text-sm leading-relaxed">
+                            Nơi Trung ương Đảng, Chính phủ và Bác Hồ lãnh đạo toàn dân kháng chiến chống thực dân Pháp trường kỳ.
+                        </p>
+                    </div>
+
+                    <!-- Milestone 4 -->
+                    <div class="bg-forest-dark/80 border border-gold/30 p-6 rounded-2xl shadow-xl reveal backdrop-blur-md">
+                        <div class="text-gold font-serif text-2xl font-bold mb-2">Tháng 5/1954</div>
+                        <h4 class="font-bold text-lg mb-2 text-white">Chiến thắng Điện Biên Phủ</h4>
+                        <p class="text-gray-300 text-sm leading-relaxed">
+                            Kết thúc vẻ vang 9 năm kháng chiến chống Pháp, bảo vệ và xây dựng vững chắc nền độc lập nước nhà.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="tourism" class="py-24 bg-vintage relative">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-3xl mx-auto mb-16 reveal">
+                    <span class="text-emerald font-bold tracking-widest uppercase text-sm block mb-2">TRẢI NGHIỆM DU LỊCH VỀ NGUỒN</span>
+                    <h2 class="font-serif text-3xl sm:text-5xl font-bold text-forest mb-4">Du Lịch Sinh Thái & Về Nguồn Tây Bắc</h2>
+                    <div class="w-24 h-1 bg-gold mx-auto rounded-full mb-6"></div>
+                    <p class="text-gray-700 text-base sm:text-lg leading-relaxed">
+                        Kết hợp hành trình giáo dục truyền thống lịch sử với khám phá thiên nhiên hoang sơ, hùng vĩ và văn hóa đặc sắc của đồng bào các dân tộc Tuyên Quang.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- Feature 1 -->
+                    <div class="vintage-card p-8 rounded-3xl shadow-xl reveal">
+                        <div class="w-14 h-14 rounded-2xl bg-forest text-gold flex items-center justify-center text-2xl mb-6 shadow-md">
+                            <i class="fa-solid fa-tree"></i>
+                        </div>
+                        <h3 class="font-serif text-xl font-bold text-forest mb-3">Du lịch sinh thái rừng nguyên sinh</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed">
+                            Đắm mình trong bầu không khí trong lành của núi rừng Việt Bắc, tham quan các tuyến đường mòn dưới tán rừng xanh mát và cảnh quan thiên nhiên tuyệt mỹ.
+                        </p>
+                    </div>
+
+                    <!-- Feature 2 -->
+                    <div class="vintage-card p-8 rounded-3xl shadow-xl reveal">
+                        <div class="w-14 h-14 rounded-2xl bg-forest text-gold flex items-center justify-center text-2xl mb-6 shadow-md">
+                            <i class="fa-solid fa-utensils"></i>
+                        </div>
+                        <h3 class="font-serif text-xl font-bold text-forest mb-3">Ẩm thực núi rừng đặc sản</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed">
+                            Thưởng thức hương vị độc đáo của cơm lam ống nứa, thịt gác bếp đậm đà, cá suối măng chua và các món ăn truyền thống của đồng bào vùng cao Tuyên Quang.
+                        </p>
+                    </div>
+
+                    <!-- Feature 3 -->
+                    <div class="vintage-card p-8 rounded-3xl shadow-xl reveal">
+                        <div class="w-14 h-14 rounded-2xl bg-forest text-gold flex items-center justify-center text-2xl mb-6 shadow-md">
+                            <i class="fa-solid fa-people-roof"></i>
+                        </div>
+                        <h3 class="font-serif text-xl font-bold text-forest mb-3">Du lịch cộng đồng & Homestay</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed">
+                            Trải nghiệm sinh hoạt văn hóa cùng bà con các dân tộc bản địa tại các nhà sàn truyền thống, tìm hiểu nghề dệt thổ cẩm và các điệu múa then ngọt ngào.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="py-20 bg-forest text-cream relative">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center reveal">
+                <span class="bg-gold text-forest text-xs font-bold px-4 py-1.5 rounded-full uppercase tracking-wider mb-4 inline-block">HÀNH TRÌNH VỀ NGUỒN</span>
+                <h2 class="font-serif text-3xl sm:text-5xl font-bold mb-6">Sẵn Sàng Cho Chuyến Về Miền Đất Lịch Sử?</h2>
+                <p class="text-gray-200 text-base sm:text-lg mb-8 max-w-2xl mx-auto">
+                    Hãy lên kế hoạch ghé thăm Khu di tích quốc gia đặc biệt ATK Tân Trào để tri ân các anh hùng dân tộc và trải nghiệm thiên nhiên tuyệt vời của Tuyên Quang.
+                </p>
+                <div class="flex flex-col sm:flex-row justify-center gap-4">
+                    <a href="tel:02743820123" class="bg-gold hover:bg-yellow-400 text-forest font-bold px-8 py-4 rounded-full shadow-lg transition-all flex items-center justify-center space-x-3">
+                        <i class="fa-solid fa-phone"></i>
+                        <span>Liên hệ Ban Quản Lý Di Tích</span>
+                    </a>
+                    <a href="#home" class="bg-white/10 hover:bg-white/20 border border-white/30 text-cream font-semibold px-8 py-4 rounded-full shadow-lg transition-all flex items-center justify-center space-x-3">
+                        <i class="fa-solid fa-arrow-up"></i>
+                        <span>Về đầu trang</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div id="history-modal" class="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm hidden p-4">
+        <div class="bg-vintage w-full max-w-2xl rounded-3xl shadow-2xl overflow-hidden border border-wood/30 transform transition-all scale-95 duration-300" id="modal-container">
+            <div class="bg-forest text-cream px-6 py-4 flex items-center justify-between">
+                <h3 id="modal-title" class="font-serif text-2xl font-bold text-gold">Chi Tiết Di Tích Lịch Sử</h3>
+                <button onclick="closeModal()" class="text-cream hover:text-gold text-xl p-2 focus:outline-none">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+            <div class="p-8 max-h-[70vh] overflow-y-auto">
+                <div id="modal-content" class="space-y-4 text-gray-700 leading-relaxed text-base">
+                    <!-- Dynamic content filled by JS -->
+                </div>
+            </div>
+            <div class="bg-cream px-6 py-4 border-t border-wood/20 flex justify-end">
+                <button onclick="closeModal()" class="bg-forest hover:bg-emerald text-cream px-6 py-2.5 rounded-xl font-semibold transition-colors">
+                    Đóng lại
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <footer class="bg-charcoal text-cream py-16 border-t border-forest/40">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-10 mb-12">
+                <div class="space-y-4 md:col-span-2">
+                    <div class="flex items-center space-x-3">
+                        <div class="w-10 h-10 rounded-full bg-red-600 flex items-center justify-center text-gold shadow">
+                            <i class="fa-solid fa-star text-xl"></i>
+                        </div>
+                        <span class="font-serif font-bold text-xl tracking-wide text-cream">ATK TÂN TRÀO</span>
+                    </div>
+                    <p class="text-gray-400 text-sm leading-relaxed max-w-md">
+                        Khu di tích lịch sử quốc gia đặc biệt ATK Tân Trào, huyện Sơn Dương, tỉnh Tuyên Quang. Tự hào là "Thủ đô kháng chiến" gắn liền với mốc son chói lọi của lịch sử dân tộc Việt Nam.
+                    </p>
+                </div>
+
+                <div>
+                    <h4 class="font-serif text-lg font-bold text-gold mb-4">Liên kết nhanh</h4>
+                    <ul class="space-y-2 text-sm text-gray-300">
+                        <li><a href="#home" class="hover:text-gold transition-colors">Trang chủ</a></li>
+                        <li><a href="#overview" class="hover:text-gold transition-colors">Tổng quan Lịch sử 12</a></li>
+                        <li><a href="#landmarks" class="hover:text-gold transition-colors">Di tích cốt lõi</a></li>
+                        <li><a href="#timeline" class="hover:text-gold transition-colors">Dòng thời gian 1945-1954</a></li>
+                        <li><a href="#tourism" class="hover:text-gold transition-colors">Du lịch sinh thái</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-serif text-lg font-bold text-gold mb-4">Thông tin liên hệ</h4>
+                    <ul class="space-y-3 text-sm text-gray-300">
+                        <li class="flex items-start space-x-3">
+                            <i class="fa-solid fa-location-dot text-gold mt-1"></i>
+                            <span>Xã Tân Trào, huyện Sơn Dương, tỉnh Tuyên Quang</span>
+                        </li>
+                        <li class="flex items-center space-x-3">
+                            <i class="fa-solid fa-phone text-gold"></i>
+                            <span>Ban Quản lý Di tích: (0274) 3820 xxx</span>
+                        </li>
+                        <li class="flex items-center space-x-3">
+                            <i class="fa-solid fa-envelope text-gold"></i>
+                            <span>info@atktantrao.gov.vn</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-700 pt-8 text-center text-sm text-gray-400">
+                <p>&copy; 2026 Khu Di Tích Lịch Sử Quốc Gia Đặc Biệt ATK Tân Trào. Thiết kế dành riêng cho chương trình Lịch sử Việt Nam & Quảng bá du lịch.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu on link click
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Navbar Scroll Effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('shadow-2xl', 'bg-forest/98');
+            } else {
+                navbar.classList.remove('shadow-2xl', 'bg-forest/98');
+            }
+        });
+
+        // Scroll Reveal Animation via Intersection Observer
+        const revealElements = document.querySelectorAll('.reveal');
+        const revealObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.15
+        });
+
+        revealElements.forEach(el => revealObserver.observe(el));
+
+        // Historical Modal Data & Functions
+        const landmarkData = {
+            nana: {
+                title: "Lán Nà Nưa - Cội nguồn Tổng Khởi Nghĩa",
+                content: `
+                    <p class="font-semibold text-forest text-lg">Thời gian: Cuối tháng 5 đến giữa tháng 8 năm 1945.</p>
+                    <p>Lán Nà Nưa là một lán nhỏ nằm ẩn mình dưới tán rừng Nà Nưa, xã Tân Trào, huyện Sơn Dương, tỉnh Tuyên Quang, được dựng bằng tre nứa theo kiểu nhà sàn miền núi.</p>
+                    <p>Đây là nơi Chủ tịch Hồ Chí Minh ở và làm việc từ cuối tháng 5 đến giữa tháng 8 năm 1945 để lãnh đạo cuộc cách mạng giải phóng dân tộc. Tại đây, Người đã chủ trì Hội nghị cán bộ toàn quốc của Đảng (từ ngày 13 đến 15/8/1945) và Đại hội Quốc dân Tân Trào, đưa ra quyết định lịch sử phát động Tổng khởi nghĩa giành chính quyền trong cả nước.</p>
+                    <p class="italic text-gray-600 bg-wood/10 p-4 rounded-xl border-l-4 border-gold">"Lán Nà Nưa đơn sơ nhưng là ngọn hải đăng soi đường cho vận mệnh cả dân tộc trước giờ phút quyết định của lịch sử."</p>
+                `
+            },
+            dinh: {
+                title: "Đình Tân Trào - Quốc Dân Đại Hội 1945",
+                content: `
+                    <p class="font-semibold text-forest text-lg">Thời gian: Ngày 16 - 17 tháng 8 năm 1945.</p>
+                    <p>Đình Tân Trào là ngôi đình cổ kính mang kiến trúc nhà sàn mái lá truyền thống của đồng bào Tày, là nơi diễn ra Quốc dân Đại hội (tương ưng với Quốc hội lâm thời) vào ngày 16 và 17 tháng 8 năm 1945.</p>
+                    <p>Đại hội đã tán thành chủ trương Tổng khởi nghĩa của Đảng, thông qua 10 chính sách lớn của Việt Minh, quyết định Quốc kỳ (cờ đỏ sao vàng), Quốc ca (Tiến quân ca) và cử ra Ủy ban Dân tộc Giải phóng Việt Nam (tức Chính phủ lâm thời) do lãnh tụ Hồ Chí Minh làm Chủ tịch.</p>
+                    <p class="italic text-gray-600 bg-wood/10 p-4 rounded-xl border-l-4 border-gold">"Đình Tân Trào chính là nơi hội tụ ý chí độc lập của toàn dân tộc, nơi quyết định vận mệnh nước nhà."</p>
+                `
+            },
+            cayda: {
+                title: "Cây Đa Tân Trào - Lễ Xuất Quân Lịch Sử",
+                content: `
+                    <p class="font-semibold text-forest text-lg">Sự kiện: Chiều ngày 16 tháng 8 năm 1945.</p>
+                    <p>Cây đa Tân Trào nằm ở đầu làng Tân Lập, gắn liền với sự kiện trọng đại vào chiều ngày 16/8/1945. Dưới bóng đa cổ thụ này, Đại tướng Võ Nguyên Giáp đã đọc Bản Quân lệnh số 1 trước toàn thể Quân đội Giải phóng Việt Nam và đông đảo nhân dân.</p>
+                    <p>Ngay sau lễ xuất quân, quân đội ta đã tiến về giải phóng thị xã Thái Nguyên, rồi tiến về Hà Nội, góp phần quyết định thắng lợi của cuộc Cách mạng Tháng Tám năm 1945 vĩ đại.</p>
+                    <p class="italic text-gray-600 bg-wood/10 p-4 rounded-xl border-l-4 border-gold">"Bóng đa Tân Trào mãi là biểu tượng bất tử của tinh thần quyết chiến quyết thắng và khát vọng tự do của dân tộc Việt Nam."</p>
+                `
+            }
+        };
+
+        function openModal(key) {
+            const modal = document.getElementById('history-modal');
+            const titleEl = document.getElementById('modal-title');
+            const contentEl = document.getElementById('modal-content');
+            const container = document.getElementById('modal-container');
+
+            if (landmarkData[key]) {
+              titleEl.textContent = landmarkData[key].title;
+                contentEl.innerHTML = landmarkData[key].content;
+                modal.classList.remove('hidden');
+                setTimeout(() => {
+                    container.classList.remove('scale-95');
+                    container.classList.add('scale-100');
+                }, 10);
+            }
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('history-modal');
+            const container = document.getElementById('modal-container');
+            container.classList.remove('scale-100');
+            container.classList.add('scale-95');
+            setTimeout(() => {
+                modal.classList.add('hidden');
+            }, 200);
+        }
+
+        // Close modal on outside click
+        window.addEventListener('click', (e) => {
+            const modal = document.getElementById('history-modal');
+            if (e.target === modal) {
+                closeModal();
+            }
+          });
+    </script>
+</body>
+</html>
